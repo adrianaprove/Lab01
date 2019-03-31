@@ -8,6 +8,7 @@ package it.polito.tdp.parole;
 import it.polito.tdp.parole.model.Parole;
 
 import java.net.URL;
+import java.util.LinkedList;
 import java.util.ResourceBundle;
 
 import javafx.event.ActionEvent;
@@ -40,12 +41,16 @@ public class ParoleController {
 
     @FXML
     void doInsert(ActionEvent event) {
-    	// TODO
+    	String parola=txtParola.getText(); 
+    	elenco.addParola(parola);
+    	LinkedList <String> e=(LinkedList<String>) elenco.getElenco(); 
+    	for(int i=0; i<e.size(); i++)
+    		txtResult.appendText(e.get(i)+"\n");
     }
     
     @FXML
     void doReset(ActionEvent event) {
-    	// TODO
+    	elenco.reset();
     }
 
     @FXML // This method is called by the FXMLLoader when initialization is complete

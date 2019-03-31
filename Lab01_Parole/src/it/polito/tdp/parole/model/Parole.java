@@ -24,5 +24,9 @@ public class Parole {
 		elenco.clear();
 		//elenco=new LinkedList <String> (); ??
 	}
+	
+	public void cancella(String s) {
+		elenco.remove(s); 
+	}
 
 }

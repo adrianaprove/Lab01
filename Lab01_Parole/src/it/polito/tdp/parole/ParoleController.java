@@ -40,10 +40,24 @@ public class ParoleController {
     private Button btnInserisci; // Value injected by FXMLLoader
 
     @FXML
+    private Button btnCancella;
+
+    @FXML
+    void doCancella(ActionEvent event) {
+    	String s=txtParola.getText().trim(); 
+    	elenco.cancella(s);
+    	LinkedList <String> e=(LinkedList<String>) elenco.getElenco(); 
+    	txtResult.clear();
+    	for(int i=0; i<e.size(); i++)
+    		txtResult.appendText(e.get(i)+"\n");
+    }
+    
+    @FXML
     void doInsert(ActionEvent event) {
-    	String parola=txtParola.getText(); 
+    	String parola=txtParola.getText().trim(); //ho assunto che venga inserita solo una parola alla volta
     	elenco.addParola(parola);
     	LinkedList <String> e=(LinkedList<String>) elenco.getElenco(); 
+    	txtResult.clear();
     	for(int i=0; i<e.size(); i++)
     		txtResult.appendText(e.get(i)+"\n");
     }
@@ -51,6 +65,7 @@ public class ParoleController {
     @FXML
     void doReset(ActionEvent event) {
     	elenco.reset();
+    	txtResult.clear();
     }
 
     @FXML // This method is called by the FXMLLoader when initialization is complete
@@ -58,7 +73,8 @@ public class ParoleController {
         assert txtParola != null : "fx:id=\"txtParola\" was not injected: check your FXML file 'Parole.fxml'.";
         assert txtResult != null : "fx:id=\"txtResult\" was not injected: check your FXML file 'Parole.fxml'.";
         assert btnInserisci != null : "fx:id=\"btnInserisci\" was not injected: check your FXML file 'Parole.fxml'.";
-
+        assert btnReset != null : "fx:id=\"btnReset\" was not injected: check your FXML file 'Parole.fxml'.";
+        assert btnCancella != null : "fx:id=\"btnCancella\" was not injected: check your FXML file 'Parole.fxml'.";
         elenco = new Parole() ;
         
     }

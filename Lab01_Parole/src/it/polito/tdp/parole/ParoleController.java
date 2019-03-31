@@ -70,7 +70,8 @@ public class ParoleController {
     	//prendo tempo iniziale
     	double start=System.nanoTime(); 
   
-    	String parola=txtParola.getText().trim(); //ho assunto che venga inserita solo una parola alla volta
+    	String parola=txtParola.getText().trim(); 
+    	//ho assunto che venga inserita solo una parola alla volta
     	elenco.addParola(parola);
     	
     	//prendo tempo finale

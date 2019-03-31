@@ -9,6 +9,7 @@ import it.polito.tdp.parole.model.Parole;
 
 import java.net.URL;
 import java.util.LinkedList;
+import java.util.List;
 import java.util.ResourceBundle;
 
 import javafx.event.ActionEvent;
@@ -53,7 +54,7 @@ public class ParoleController {
     	double end=System.nanoTime(); 
     	double diff=System.nanoTime(); 
   
-    	LinkedList <String> e=(LinkedList<String>) elenco.getElenco(); 
+    	List <String> e= elenco.getElenco(); 
     	txtResult.clear();
     	for(int i=0; i<e.size(); i++)
     		txtResult.appendText(e.get(i)+"\n");
@@ -77,7 +78,7 @@ public class ParoleController {
     	double diff=end-start; 
     	
     	txtResult.clear();
-    	LinkedList <String> e=(LinkedList<String>) elenco.getElenco(); 
+    	List <String> e=elenco.getElenco(); 
     	for(int i=0; i<e.size(); i++)
     		txtResult.appendText(e.get(i)+"\n");
     	
